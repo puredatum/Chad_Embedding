@@ -1,0 +1,1 @@
+from .embedding_class import EmbeddingClass
