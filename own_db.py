@@ -3,11 +3,11 @@ from chad_embedding import ChadEmbeddingFunc
 
 
 chad_emb = ChadEmbeddingFunc()
-
+db_name = "scraped_database.json"
 
 add_data = False
 if add_data:
-	with open("scraped_database.json", 'r') as file:
+	with open(db_name, 'r') as file:
 		data = json.load(file)
 
 	for item in data:
