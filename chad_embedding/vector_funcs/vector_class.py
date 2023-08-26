@@ -41,4 +41,4 @@ class VectorFunctions:
 		for index_sorted in sorted_index[:n_returns]:
 			output_list.append([text_list[index_sorted]["text_in"], self.list_cos_sim[index_sorted]])
 
-		return output_list
+		return output_list, sorted_index
