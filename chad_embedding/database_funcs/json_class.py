@@ -16,7 +16,7 @@ class JsonDatabase:
                 json.dump(data, file)
 
     # Insert text and an embedding
-    def insert_row(self, text_in, embedding):
+    def insert_row(self, text_in: str, embedding: list):
         if os.path.exists(f'{self._database_name}.json'):
             try:
                 with open(f'{self._database_name}.json', 'r') as file:

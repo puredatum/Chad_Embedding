@@ -10,29 +10,29 @@ class VectorFunctions:
 
 	# Magnitude of a vector
 	@staticmethod
-	def vec_mag(vector_in):
+	def _vec_mag(vector_in):
 		return np.linalg.norm(vector_in)
 
 	# Dot product of 2 vectors
 	@staticmethod
-	def vec_dot(v1, v2):	
+	def _vec_dot(v1, v2):	
 		return np.dot(v1, v2)
 
 	# Cosine similarity of 2 vectors
 	@staticmethod
-	def cos_sim(v1, v2):
-		numerator = VectorFunctions.vec_dot(v1, v2)
-		denominator = VectorFunctions.vec_mag(v1) * VectorFunctions.vec_mag(v2)
+	def _cos_sim(v1, v2):
+		numerator = VectorFunctions._vec_dot(v1, v2)
+		denominator = VectorFunctions._vec_mag(v1) * VectorFunctions._vec_mag(v2)
 
 		return numerator / denominator
 
 	# Checks a string against a list of strings and vectors and returns the best ones
-	def find_best_match(self, text_in, text_list, n_returns):
+	def find_best_match(self, text_in: str, text_list: list, n_returns: int):
 		self._text_in = text_in
 		self._embedding_in = self._embedding_class.return_embedding(self._text_in)
 
 		for item in text_list:
-			self.list_cos_sim.append(self.cos_sim(self._embedding_in, item["embedding"]))
+			self.list_cos_sim.append(self._cos_sim(self._embedding_in, item["embedding"]))
 
 		max_index = np.argmax(self.list_cos_sim)
 		sorted_index = np.argsort(self.list_cos_sim)[::-1]

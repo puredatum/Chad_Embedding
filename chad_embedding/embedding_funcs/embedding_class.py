@@ -10,11 +10,11 @@ class EmbeddingClass:
         self._embdedding_db = db_instance
 
     # Returns an embedding for a string
-    def return_embedding(self, sentence):
+    def return_embedding(self, sentence: str):
         return self._model.encode(sentence)
 
     # Makes an embedding for a string and stores it in the json database
-    def make_embedding(self, sentence):
+    def make_embedding(self, sentence: str):
         self.text_in = sentence
         self.embedding_result = self._model.encode(self.text_in)
 
