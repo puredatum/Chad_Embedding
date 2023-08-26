@@ -23,7 +23,7 @@ if make_entries:
 # Run a search for cosine similarity
 text_check = "Bitcoin is a cool concept"
 top_scores_return = 3
-best_match = chad_emb.best_match(text_check, top_scores_return)
+best_match, index_sorted = chad_emb.best_match(text_check, top_scores_return)
 
-print(text_check)
-print(best_match)
+for match in best_match:
+	print(f"{match[0]} - {round(match[1], 3)}")
